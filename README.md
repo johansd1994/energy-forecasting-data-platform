@@ -2,7 +2,7 @@
 
 ## Oil & Gas Production and Commodity Price Analysis
 
-![project banner](images/banner.png)
+![project banner](Images/Banner.png)
 
 ## Project Overview
 
