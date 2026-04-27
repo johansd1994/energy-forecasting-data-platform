@@ -2,7 +2,7 @@
 
 ## Análisis y Forecasting de Producción de Petróleo y Gas en Colombia
 
-![banner del proyecto](images/banner.png)
+![banner del proyecto](Images/banner.png)
 
 ---
 
