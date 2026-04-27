@@ -210,7 +210,7 @@ Estas predicciones permiten analizar posibles escenarios futuros y apoyar proces
 
 Para mas Información del proyecto, puede leer el documento adjunto con toda la linea de investigación
 
-![Trabajo Fin de Master]()
+![Trabajo Fin de Master](PredicciónProducciónPrecios.pdf)
 
 ---
 
