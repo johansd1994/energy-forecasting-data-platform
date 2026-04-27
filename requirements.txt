@@ -1,1 +1,28 @@
+# Data manipulation
+pandas
+numpy
 
+# Visualization
+matplotlib
+seaborn
+
+# Machine Learning
+scikit-learn
+xgboost
+
+# Time series models
+prophet
+statsmodels
+
+# Deep Learning
+tensorflow
+keras
+
+# Model explainability
+shap
+
+# Notebook environment
+jupyter
+
+# Optional utilities
+tqdm
