@@ -1,156 +1,194 @@
 # Energy Production Forecasting
 
-## Oil & Gas Production and Commodity Price Analysis
+## Oil and Gas Production Analysis and Forecasting in Colombia
 
-![project banner](Images/banner.png)
+![project banner](Images/Portada.png)
 
-## Project Overview
+---
 
-Energy markets are highly dynamic and influenced by multiple economic, technical and geopolitical factors.
+# Project Description
 
-This project focuses on analyzing and forecasting **oil and gas production in Colombia** and exploring its relationship with **international commodity prices**.
+Energy markets are highly dynamic and influenced by multiple economic, geopolitical, and technical factors.
 
-The project integrates:
+This project analyzes and predicts **oil and gas production in Colombia**, as well as its relationship with **international energy commodity prices**.
 
-* Data engineering
-* Exploratory data analysis
-* Machine learning models
-* Forecasting techniques
+The project integrates several areas of data analytics:
 
-The goal is to build predictive models capable of estimating **future production trends and price dynamics** using historical data.
+* Data Engineering
+* Exploratory Data Analysis
+* Machine Learning Models
+* Time Series Models
+* Forecasting
+
+The goal is to build models capable of **predicting the future evolution of energy production and analyzing its relationship with international prices**.
 
 ---
 
 # Data Sources
 
-The datasets used in this project come from publicly available sources:
+The datasets used in this project come from official public sources.
 
-### Production Data
+## Hydrocarbon Production
 
 Source:
-Open Data Portal of Colombia and the **Agencia Nacional de Hidrocarburos (ANH)**
 
-These datasets include monthly production information for:
+Colombia Open Data Portal
+National Hydrocarbons Agency (**ANH**)
 
-* Oil production
+The datasets contain monthly information about:
+
+* Crude oil production
 * Natural gas production
+* Oil fields
+* Operators
+* Geographic location
 
-### Commodity Prices
+---
+
+## Commodity Prices
 
 Source:
+
 Federal Reserve Economic Data (**FRED**)
 
-Price series used:
+Series used:
 
 * Brent crude oil price
 * Henry Hub natural gas price
 
-The combined dataset covers the period:
+---
+
+## Period Analyzed
+
+The data covers the period:
 
 **2014 – 2025**
+
+This time range allows the analysis of:
+
+* production trends
+* seasonality
+* price volatility
+* forecasting scenarios
 
 ---
 
 # Data Architecture
 
-The project follows a **modern data architecture based on the Medallion approach**.
+The project follows a modern data architecture based on the **Medallion Architecture** approach.
 
-![architecture](images/architecture.png)
+![project architecture](Images/ArquitecturaAWS.png)
 
-The pipeline consists of three main layers:
+The architecture is divided into three main layers.
 
-**Bronze Layer**
+### Bronze Layer
 
-Raw data ingestion from external sources.
+Contains the original raw data downloaded from external sources without modifications.
 
-**Silver Layer**
+### Silver Layer
 
-Data cleaning and transformation.
+In this layer, data cleaning, standardization, and transformation processes are performed.
 
-**Gold Layer**
+### Gold Layer
 
-Dimensional model and analytical tables used for analysis and machine learning models.
+A dimensional model and analytical tables are created for analysis, visualization, and predictive models.
 
-This architecture ensures:
+This architecture allows:
 
-* Data quality
-* Reproducibility
-* Scalable analytics workflows
+* improving data quality
+* ensuring data traceability
+* enabling analytical and predictive analysis
 
 ---
 
 # Exploratory Data Analysis
 
-The exploratory analysis focuses on identifying:
+Exploratory analysis helps understand the historical behavior of production and prices.
 
-* Production trends
-* Seasonality
-* Structural changes
-* Relationships between variables
+The main objectives of the EDA were:
+
+* identify production trends
+* detect seasonality
+* analyze volatility
+* explore relationships between variables
 
 Example of production evolution:
 
-![production](images/production_trend.png)
+![historical production Oil](Images/ProduccionTotalCrudo.png)
+![historical production Gas](Images/Images/ProduccionTotalGas.png)
+![historical prices evolution](Images/PrecioMensualRecurso.png)
 
-Key findings:
+Main findings:
 
-* Oil production shows a declining long-term trend.
-* Gas production exhibits seasonal patterns.
-* Commodity prices present high volatility.
+* Oil production shows a long-term declining trend.
+* Gas production presents seasonal patterns.
+* International prices show high volatility.
 
-Correlation analysis revealed **very low correlation between production and prices**, suggesting independent modeling strategies.
+Correlation analysis shows that **the relationship between production and price is very low**, therefore both variables must be modeled independently.
 
 ---
 
 # Time Series Analysis
 
-To understand the dynamics of production data, the time series were decomposed into:
+To better understand production dynamics, time series decomposition was performed into:
 
 * Trend
 * Seasonality
 * Residual component
 
-![decomposition](images/decomposition.png)
+![time series decomposition Oil](Images/SeriesComponentesCrudo.png)
+![time series decomposition Gas](Images/SeriesComponentesGas.png)
 
-This decomposition allows us to better understand the underlying structure of the data and design more robust forecasting models.
+This technique allows understanding the underlying structure of the data and designing more robust forecasting models.
+
+Monthly price returns were also analyzed.
+
+![monthly price returns](Images/RetornorMensualesPrecios.png)
 
 ---
 
-# Machine Learning Models
+# Predictive Models
 
-Several forecasting approaches were evaluated.
+Different forecasting approaches were evaluated.
 
-### Statistical Models
+## Statistical Models
 
 * SARIMA
 * Prophet
 
-### Machine Learning Models
+## Machine Learning Models
 
 * XGBoost
 
-### Deep Learning Models
+## Deep Learning Models
 
 * LSTM
 * GRU
 
-The models were trained using lag features and temporal variables.
+The models were trained using:
 
-Example prediction:
+* lag variables
+* temporal variables
+* feature engineering
 
-![prediction](images/prediction.png)
+Prediction examples:
+
+![Oil production prediction](Images/XGBoostProduccionCrudo.png)
+![Gas production prediction](Images/XGBoostProduccionGas.png)
 
 ---
 
-# Model Performance
+# Model Evaluation
 
-The evaluation was performed using common forecasting metrics:
+Model performance was evaluated using standard forecasting metrics:
 
 * MAE
 * MAPE
 * R²
 
-Results show that **Machine Learning models outperform traditional statistical and deep learning approaches** due to the dataset size and feature engineering strategy.
+The results show that **Machine Learning models achieved the best performance**, outperforming both traditional statistical models and deep learning models.
+
+This is mainly due to the dataset size and the effectiveness of the feature engineering applied.
 
 ---
 
@@ -158,17 +196,21 @@ Results show that **Machine Learning models outperform traditional statistical a
 
 The best-performing models were used to generate **12-month forecasts** for:
 
-* Oil production
-* Gas production
-* Commodity prices
+* oil production
+* gas production
+* commodity prices
 
-![forecast](images/forecast.png)
+![future oil scenarios](Images/escenariosCrudo.png)
 
-These projections can support:
+An economic sensitivity matrix was also created for commodities due to different possible price scenarios.
 
-* strategic planning
-* production optimization
-* economic scenario analysis
+![oil sensitivity matrix](Images/SensibilidadEconomicaCrudo.png)
+
+These predictions help analyze potential future scenarios and support decision-making processes in the energy sector.
+
+For more information about the project, you can read the full research document attached below.
+
+![Master Thesis](PredicciónProducciónPrecios.pdf)
 
 ---
 
@@ -195,22 +237,20 @@ Jupyter Notebook
 # Repository Structure
 
 ```
-
 project
 │
 ├── Data
-│ ├── Produccion_Crudo.csv
-│ ├── Produccion_Gas.csv
-│ ├── precio_crudo.csv
-│ ├── precio_gas.csv
-│ └── README.md
+│   ├── Produccion_Crudo.csv
+│   ├── Produccion_Gas.csv
+│   ├── precio_crudo.csv
+│   ├── precio_gas.csv
+│   └── README.md
 │
-├── forecasting.ipynb
+├── notebook_forecasting.ipynb
 │
 ├── requirements.txt
 │
 └── README.md
-
 ```
 
 ---
